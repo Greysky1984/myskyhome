@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活点滴</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section img, .section video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .fixed-back-to-home {
+            position: fixed; /* 固定定位 */
+            top: 20px; /* 距离页面顶部20px */
+            right: 20px; /* 距离页面右侧20px */
+            z-index: 1000; /* 确保按钮在其他内容之上 */
+            display: block;
+            padding: 10px 20px;
+            background-color: #007BFF; /* 蓝色背景 */
+            color: white; /* 白色文字 */
+            text-decoration: none; /* 去掉下划线 */
+            border-radius: 5px; /* 圆角 */
+            transition: background-color 0.3s ease; /* 平滑过渡效果 */
+            text-align: center; /* 文字居中（虽然对于块级元素这不是必需的） */
+        }
+ 
+        .fixed-back-to-home:hover {
+            background-color: #0056b3; /* 鼠标悬停时颜色变深 */
+        }
+ 
+        /* 确保页面内容不会被按钮遮挡 */
+        .content-wrapper {
+            padding-top: 60px; /* 根据按钮的高度和顶部距离调整 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <div class="content-wrapper">
+            <h2>部分一</h2>
+            <p>这是关于我们公司的第一段描述文字。你可以在这里详细介绍公司的历史、愿景和使命。</p>
+            <img src="image1.jpg" alt="部分一图片">
+            <!-- 或者使用视频 -->
+            <!-- <video controls>
+                <source src="video1.mp4" type="video/mp4">
+                您的浏览器不支持HTML5视频标签。
+            </video> -->
+        </div>
+        <div class="section">
+            <h2>部分二</h2>
+            <p>这是关于我们公司的第二段描述文字。你可以在这里介绍公司的团队、文化和价值观。</p>
+            <img src="image2.jpg" alt="部分二图片">
+            <!-- 或者使用视频 -->
+            <!-- <video controls>
+                <source src="video2.mp4" type="video/mp4">
+                您的浏览器不支持HTML5视频标签。
+            </video> -->
+        </div>
+        <div class="section">
+            <h2>部分三</h2>
+            <p>这是关于我们公司的第三段描述文字。你可以在这里介绍公司的产品或服务。</p>
+            <img src="image3.jpg" alt="部分三图片">
+            <!-- 或者使用视频 -->
+            <!-- <video controls>
+                <source src="video3.mp4" type="video/mp4">
+                您的浏览器不支持HTML5视频标签。
+            </video> -->
+        </div>
+        <div class="section">
+            <h2>部分四</h2>
+            <p>这是关于我们公司的第四段描述文字。你可以在这里分享一些客户案例或成功故事。</p>
+            <img src="image4.jpg" alt="部分四图片">
+            <!-- 或者使用视频 -->
+            <!-- <video controls>
+                <source src="video4.mp4" type="video/mp4">
+                您的浏览器不支持HTML5视频标签。
+            </video> -->
+        </div>
+        <div class="section">
+            <h2>部分五</h2>
+            <p>这是关于我们公司的第五段描述文字。你可以在这里提供联系方式或社交媒体链接。</p>
+            <img src="image5.jpg" alt="部分五图片">
+            <!-- 或者使用视频 -->
+            <!-- <video controls>
+                <source src="video5.mp4" type="video/mp4">
+                您的浏览器不支持HTML5视频标签。
+            </video> -->
+        </div>
+        </div>
+        <a href="index.html" class="fixed-back-to-home">返回首页</a>
+    </div>
+</body>
+</html>

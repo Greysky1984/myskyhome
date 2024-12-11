@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生活点滴</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .content {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .like-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .like-button:hover {
+            background-color: #0056b3;
+        }
+        .fixed-back-to-home {
+            position: fixed; /* 固定定位 */
+            top: 20px; /* 距离页面顶部20px */
+            right: 20px; /* 距离页面右侧20px */
+            z-index: 1000; /* 确保按钮在其他内容之上 */
+            display: block;
+            padding: 10px 20px;
+            background-color: #007BFF; /* 蓝色背景 */
+            color: white; /* 白色文字 */
+            text-decoration: none; /* 去掉下划线 */
+            border-radius: 5px; /* 圆角 */
+            transition: background-color 0.3s ease; /* 平滑过渡效果 */
+            text-align: center; /* 文字居中（虽然对于块级元素这不是必需的） */
+        }
+ 
+        .fixed-back-to-home:hover {
+            background-color: #0056b3; /* 鼠标悬停时颜色变深 */
+        }
+ 
+        /* 确保页面内容不会被按钮遮挡 */
+        .content-wrapper {
+            padding-top: 60px; /* 根据按钮的高度和顶部距离调整 */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>年少</h1>
+        <p>曾经年少轻狂</p>
+        <img src="Resource\001.png" alt="年少" width="60%">
+        <br>
+        <button id="likeButton" class="like-button">点赞</button>
+        <p>点赞数: <span id="likeCount">0</span></p>
+    </div>
+    <div class="content">
+        <h1>变胖</h1>
+        <p>后来成了个胖子，得名“类子”</p>
+        <img src="Resource\002.png" alt="胖子" width="60%">
+        <br>
+        <button id="likeButton" class="like-button">点赞</button>
+        <p>点赞数: <span id="likeCount">0</span></p>
+    </div>
+    <div class="content">
+        <h1>结婚</h1>
+        <p>结婚了，类类依旧</p>
+        <img src="Resource\003.png" alt="结婚" width="60%">
+        <br>
+        <button id="likeButton" class="like-button">点赞</button>
+        <p>点赞数: <span id="likeCount">0</span></p>
+    </div>
+    <div class="content">
+        <h1>儿子</h1>
+        <p>有了儿子，一模一样</p>
+        <img src="Resource\004.png" alt="儿子" width="60%">
+        <br>
+        <button id="likeButton" class="like-button">点赞</button>
+        <p>点赞数: <span id="likeCount">0</span></p>
+    </div>
+    <div class="content">
+        <h1>女儿</h1>
+        <p>有了女儿，比我漂亮</p>
+        <img src="Resource\005.png" alt="女儿" width="60%">
+        <br>
+        <button id="likeButton" class="like-button">点赞</button>
+        <p>点赞数: <span id="likeCount">0</span></p>
+    </div>
+    <div class="content">
+        <h1>团圆</h1>
+        <p>减肥了，幸福美满</p>
+        <img src="Resource\006.png" alt="幸福" width="60%">
+        <br>
+        <button id="likeButton" class="like-button">点赞</button>
+        <p>点赞数: <span id="likeCount">0</span></p>
+    </div>
+    <div class="content">
+        <h1>老了</h1>
+        <p>即便老去，也不会遗憾</p>
+        <img src="Resource\007.png" alt="老了" width="60%">
+        <br>
+        <button id="likeButton" class="like-button">点赞</button>
+        <p>点赞数: <span id="likeCount">0</span></p>
+    </div>
+    <a href="index.html" class="fixed-back-to-home">返回首页</a>
+ 
+    <script>
+        document.getElementById('likeButton').addEventListener('click', function() {
+            fetch('like.php?action=like')
+                .then(response => response.text())
+                .then(newLikeCount => {
+                    // 更新页面上的点赞数
+                    document.getElementById('likeCount').textContent = newLikeCount;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类子哥的虚拟世界</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f7da;
+        }
+        header {
+            background-color: #f7f7f6;
+            color: #38035c;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: #1a07ed;
+            text-decoration: none;
+            margin: 20px;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #e6f7dd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container img {
+            max-width: 100%;
+            height: auto;
+        }
+        nav ul {
+            /* 使用Flexbox布局来确保元素正确对齐 */
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            list-style-type: none; /* 移除列表项的默认样式 */
+            padding: 0; /* 移除内边距 */
+            margin: 0; /* 移除外边距 */
+        }
+        nav ul li {
+            /* 设置适当的间距 */
+            margin: 0 1rem;
+        }
+        /* 添加一个新样式用于访问次数显示 */
+        .visit-count-container {
+            display: flex; /* 使用Flexbox来包含访问次数和分隔符（如果需要） */
+            align-items: center; /* 垂直居中 */
+        }
+        .visit-count {
+            margin-left: 1rem; /* 在访问次数和“给我留言”之间添加一些间距 */
+            font-size: 30px; /* 与其他导航链接保持一致 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="font-size: 88px; 
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 
+                     -1px -1px 2px rgba(255, 255, 255, 0.5);">欢 迎 来 到 类 子 哥 的 网 络 世 界</h1>
+        <nav>
+            <ul>
+                <li style="font-size: 50px;"><a href="services.html">生活点滴</a></li>
+                <li style="font-size: 50px;"><a href="about.html">作品展示</a></li>
+                <li style="font-size: 50px;"><a href="contact.html">给我留言</a></li>
+                 <!-- “给我留言”及其旁边的访问次数显示 -->
+                <li>
+                    <div class="visit-count-container">
+                        <span class="visit-count" id="visitCount">
+                            <span id="visitNumber">加载中...</span> 次访问
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>关于我们</h2>
+        <p>这是一个简单的网站首页示例。<a href="https://space.bilibili.com/1732153426/" target="_blank">官方网站</a>。</p>  
+        <img src="Resource\Bg001.png" alt="示例">
+    </div>
+    <script>
+        // 尝试从localStorage获取访问次数，如果不存在则初始化为0
+        let visitCount = localStorage.getItem('visitCount') ? parseInt(localStorage.getItem('visitCount')) : 0;
+        // 每次页面加载时增加访问次数
+        visitCount++;
+        // 更新localStorage中的访问次数
+        localStorage.setItem('visitCount', visitCount);
+        // 更新页面上的显示
+        document.getElementById('visitNumber').textContent = visitCount;
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+ 
+h1 {
+    text-align: center;
+}
+ 
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ 
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+ 
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+ 
+button:hover {
+    background-color: #0056b3;
+}
+ 
+#messages {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ 
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+.fixed-back-to-home {
+    position: fixed; /* 固定定位 */
+    top: 20px; /* 距离页面顶部20px */
+    right: 20px; /* 距离页面右侧20px */
+    z-index: 1000; /* 确保按钮在其他内容之上 */
+    display: block;
+    padding: 10px 20px;
+    background-color: #007BFF; /* 蓝色背景 */
+    color: white; /* 白色文字 */
+    text-decoration: none; /* 去掉下划线 */
+    border-radius: 5px; /* 圆角 */
+    transition: background-color 0.3s ease; /* 平滑过渡效果 */
+    text-align: center; /* 文字居中（虽然对于块级元素这不是必需的） */
+}
+
+.fixed-back-to-home:hover {
+    background-color: #0056b3; /* 鼠标悬停时颜色变深 */
+}
+
+/* 确保页面内容不会被按钮遮挡 */
+.content-wrapper {
+    padding-top: 60px; /* 根据按钮的高度和顶部距离调整 */
+}
