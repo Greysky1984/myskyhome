@@ -1,18 +1,95 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>留言板</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>留言板</h1>
-    <form id="messageForm">
-        <textarea id="message" maxlength="100" placeholder="写下你的留言（不超过100字）" required></textarea>
-        <button type="submit">提交</button>
-    </form>
-    <div id="messages"></div>
-    <script src="script.js"></script>
-    <a href="index.html" class="fixed-back-to-home">返回首页</a>
-</body>
-</html>
+<!DOCTYPE html>  
+<html lang="zh">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>留言板</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 20px;  
+            padding: 0;  
+        }  
+        #message-container {  
+            margin-top: 20px;  
+        }  
+        .message {  
+            border: 1px solid #ccc;  
+            padding: 10px;  
+            margin: 5px 0;  
+        }  
+        #message-input {  
+            margin-bottom: 10px;  
+        }  
+        .fixed-back-to-home {
+            position: fixed; /* 固定定位 */
+            top: 20px; /* 距离页面顶部20px */
+            right: 20px; /* 距离页面右侧20px */
+            z-index: 1000; /* 确保按钮在其他内容之上 */
+            display: block;
+            padding: 10px 20px;
+            background-color: #007BFF; /* 蓝色背景 */
+            color: white; /* 白色文字 */
+            text-decoration: none; /* 去掉下划线 */
+            border-radius: 5px; /* 圆角 */
+            transition: background-color 0.3s ease; /* 平滑过渡效果 */
+            text-align: center; /* 文字居中（虽然对于块级元素这不是必需的） */
+        }
+ 
+        .fixed-back-to-home:hover {
+            background-color: #0056b3; /* 鼠标悬停时颜色变深 */
+        }
+ 
+        /* 确保页面内容不会被按钮遮挡 */
+        .content-wrapper {
+            padding-top: 60px; /* 根据按钮的高度和顶部距离调整 */
+        }
+    </style>  
+</head>  
+<body>  
+    <h1>留言板</h1>  
+    <textarea id="message-input" rows="4" cols="50" placeholder="请输入留言内容"></textarea><br>  
+    <button id="submit-message">提交留言</button>  
+
+    <div id="message-container"></div>  
+
+    <script>  
+        function loadMessages() {  
+            const messages = JSON.parse(localStorage.getItem('messages')) || [];  
+            displayMessages(messages);  
+        }  
+
+        function displayMessages(messages) {  
+            const container = document.getElementById('message-container');  
+            container.innerHTML = '';  
+            messages.forEach(msg => {  
+                const msgDiv = document.createElement('div');  
+                msgDiv.className = 'message';  
+                msgDiv.innerText = msg;  
+                container.appendChild(msgDiv);  
+            });  
+        }  
+
+        document.getElementById('submit-message').onclick = function() {  
+            const messageInput = document.getElementById('message-input');  
+            const message = messageInput.value.trim();  
+            if (!message) {  
+                alert('留言内容不能为空！');  
+                return;  
+            }  
+
+            // 从本地存储加载留言  
+            const messages = JSON.parse(localStorage.getItem('messages')) || [];  
+            messages.push(message); // 添加新留言  
+            localStorage.setItem('messages', JSON.stringify(messages)); // 保存到本地存储  
+
+            messageInput.value = ''; // 清空输入框  
+            displayMessages(messages); // 更新留言显示  
+        };  
+
+        // 页面加载时获取所有留言  
+        window.onload = loadMessages;  
+    </script>  
+     <a href="index.html" class="fixed-back-to-home">返回首页</a>
+</body>  
+</html>  

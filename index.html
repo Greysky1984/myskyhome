@@ -38,9 +38,15 @@
             background-color: #e6f7dd;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        .container h2 {
+            font-size: 66px; /* 设置标题字体大小为88号 */
+            margin-bottom: 20px; /* 可选：增加标题和诗句之间的间距 */
+        }
         .container img {
             max-width: 100%;
             height: auto;
+            text-align: center; /* 将容器内的内容居中 */
+            margin-top: 50px; /* 可选：增加顶部间距 */
         }
         nav ul {
             /* 使用Flexbox布局来确保元素正确对齐 */
@@ -63,6 +69,11 @@
         .visit-count {
             margin-left: 1rem; /* 在访问次数和“给我留言”之间添加一些间距 */
             font-size: 30px; /* 与其他导航链接保持一致 */
+        }
+        .poem-line {
+            /* 诗句行的样式可以根据需要调整，比如字体大小、行高等 */
+            font-size: 24px; /* 示例：设置诗句字体大小为20px */
+            margin-bottom: 10px; /* 示例：增加诗句行之间的间距 */
         }
     </style>
 </head>
@@ -88,9 +99,20 @@
         </nav>
     </header>
     <div class="container">
-        <h2>关于我们</h2>
-        <p>这是一个简单的网站首页示例。<a href="https://space.bilibili.com/1732153426/" target="_blank">官方网站</a>。</p>  
-        <img src="Resource\Bg001.png" alt="示例">
+        <div class="poem-container">
+            <div class="poem-line">君不见，黄河之水天上来，奔流到海不复回。</div>
+            <div class="poem-line">君不见，高堂明镜悲白发，朝如青丝暮成雪。</div>
+            <div class="poem-line">人生得意须尽欢，莫使金樽空对月。</div>
+            <div class="poem-line">天生我材必有用，千金散尽还复来。</div>
+            <div class="poem-line">烹羊宰牛且为乐，会须一饮三百杯。</div>
+            <div class="poem-line">岑夫子，丹丘生，将进酒，杯莫停。</div>
+            <div class="poem-line">与君歌一曲，请君为我倾耳听。</div>
+            <div class="poem-line">钟鼓馔玉不足贵，但愿长醉不复醒。</div>
+            <div class="poem-line">古来圣贤皆寂寞，惟有饮者留其名。</div>
+            <div class="poem-line">陈王昔时宴平乐，斗酒十千恣欢谑。</div>
+            <div class="poem-line">主人何为言少钱，径须沽取对君酌。</div>
+            <div class="poem-line">五花马、千金裘，呼儿将出换美酒，与尔同销万古愁。</div>
+        </div>
     </div>
     <script>
         // 尝试从localStorage获取访问次数，如果不存在则初始化为0
