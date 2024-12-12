@@ -56,73 +56,75 @@
     <div class="content">
         <h1>年少</h1>
         <p>曾经年少轻狂</p>
-        <img src="Resource\001.png" alt="年少" width="60%">
+        <img src="Resource/001.png" alt="年少" width="60%">
         <br>
-        <button id="likeButton" class="like-button">点赞</button>
-        <p>点赞数: <span id="likeCount">0</span></p>
+        <button class="like-button" data-id="1">点赞</button>
+        <div class="like-count" data-id="1">0</div>
     </div>
     <div class="content">
         <h1>变胖</h1>
         <p>后来成了个胖子，得名“类子”</p>
-        <img src="Resource\002.png" alt="胖子" width="60%">
+        <img src="Resource/002.png" alt="胖子" width="60%">
         <br>
-        <button id="likeButton" class="like-button">点赞</button>
-        <p>点赞数: <span id="likeCount">0</span></p>
+        <button class="like-button" data-id="2">点赞</button>
+        <div class="like-count" data-id="2">0</div>
     </div>
     <div class="content">
         <h1>结婚</h1>
         <p>结婚了，类类依旧</p>
-        <img src="Resource\003.png" alt="结婚" width="60%">
+        <img src="Resource/003.png" alt="结婚" width="60%">
         <br>
-        <button id="likeButton" class="like-button">点赞</button>
-        <p>点赞数: <span id="likeCount">0</span></p>
+        <button class="like-button" data-id="3">点赞</button>
+        <div class="like-count" data-id="3">0</div>
     </div>
     <div class="content">
         <h1>儿子</h1>
         <p>有了儿子，一模一样</p>
-        <img src="Resource\004.png" alt="儿子" width="60%">
+        <img src="Resource/004.png" alt="儿子" width="60%">
         <br>
-        <button id="likeButton" class="like-button">点赞</button>
-        <p>点赞数: <span id="likeCount">0</span></p>
+        <button class="like-button" data-id="4">点赞</button>
+        <div class="like-count" data-id="4">0</div>
     </div>
     <div class="content">
         <h1>女儿</h1>
         <p>有了女儿，比我漂亮</p>
-        <img src="Resource\005.png" alt="女儿" width="60%">
+        <img src="Resource/005.png" alt="女儿" width="60%">
         <br>
-        <button id="likeButton" class="like-button">点赞</button>
-        <p>点赞数: <span id="likeCount">0</span></p>
+        <button class="like-button" data-id="5">点赞</button>
+        <div class="like-count" data-id="5">0</div>
     </div>
     <div class="content">
         <h1>团圆</h1>
         <p>减肥了，幸福美满</p>
-        <img src="Resource\006.png" alt="幸福" width="60%">
+        <img src="Resource/006.png" alt="幸福" width="60%">
         <br>
-        <button id="likeButton" class="like-button">点赞</button>
-        <p>点赞数: <span id="likeCount">0</span></p>
+        <button class="like-button" data-id="6">点赞</button>
+        <div class="like-count" data-id="6">0</div>
     </div>
     <div class="content">
         <h1>老了</h1>
         <p>即便老去，也不会遗憾</p>
-        <img src="Resource\007.png" alt="老了" width="60%">
+        <img src="Resource/007.png" alt="老了" width="60%">
         <br>
-        <button id="likeButton" class="like-button">点赞</button>
-        <p>点赞数: <span id="likeCount">0</span></p>
+        <button class="like-button" data-id="7">点赞</button>
+        <div class="like-count" data-id="7">0</div>
     </div>
-    <a href="index.html" class="fixed-back-to-home">返回首页</a>
- 
     <script>
-        document.getElementById('likeButton').addEventListener('click', function() {
-            fetch('like.php?action=like')
-                .then(response => response.text())
-                .then(newLikeCount => {
-                    // 更新页面上的点赞数
-                    document.getElementById('likeCount').textContent = newLikeCount;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const likeButtons = document.querySelectorAll('.like-button');
+ 
+            likeButtons.forEach(button => {
+                let countId = button.getAttribute('data-id');
+                let countElement = document.querySelector(`.like-count[data-id="${countId}"]`);
+                let count = parseInt(countElement.textContent, 10) || 0;
+ 
+                button.addEventListener('click', () => {
+                    count++;
+                    countElement.textContent = count;
                 });
+            });
         });
     </script>
+    <a href="index.html" class="fixed-back-to-home">返回首页</a>
 </body>
 </html>
