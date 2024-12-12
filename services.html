@@ -110,20 +110,25 @@
         <div class="like-count" data-id="7">0</div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const likeButtons = document.querySelectorAll('.like-button');
- 
-            likeButtons.forEach(button => {
-                let countId = button.getAttribute('data-id');
-                let countElement = document.querySelector(`.like-count[data-id="${countId}"]`);
-                let count = parseInt(countElement.textContent, 10) || 0;
- 
-                button.addEventListener('click', () => {
-                    count++;
-                    countElement.textContent = count;
-                });
-            });
-        });
+       document.addEventListener('DOMContentLoaded', (event) => {  
+    const likeButtons = document.querySelectorAll('.like-button');  
+
+    likeButtons.forEach(button => {  
+        let countId = button.getAttribute('data-id');  
+        let countElement = document.querySelector(`.like-count[data-id="${countId}"]`);  
+
+        // 从 localStorage 中读取保存的点赞数  
+        let count = parseInt(localStorage.getItem(`like_count_${countId}`), 10) || 0;  
+        countElement.textContent = count; // 初始化显示  
+
+        button.addEventListener('click', () => {  
+            count++;  
+            countElement.textContent = count;  
+            // 保存点赞次数到 localStorage  
+            localStorage.setItem(`like_count_${countId}`, count);  
+        });  
+    });  
+});  
     </script>
     <a href="index.html" class="fixed-back-to-home">返回首页</a>
 </body>
